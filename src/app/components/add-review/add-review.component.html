@@ -1,0 +1,62 @@
+<div>
+    <h2>Add Review Details</h2>
+    <form [formGroup]="reviewForm" (ngSubmit)="addNewReview()">
+        <table>
+            <thead>
+                <th></th>
+            </thead>
+            <tr>
+                <td><label for="customerId">Customer Id:</label></td><br>
+                <td><input id="customerId" type="number" placeholder="Enter Id" formControlName="customerId" [(ngModel)]="customerId"></td>
+                <td *ngIf="f.customerId.invalid && (f.customerId.touched || f.customerId.dirty)">
+                    <p *ngIf="f.customerId.hasError('required')">Customer Id is required</p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="subject">Course Title:</label></td><br>
+                <td><input id="subject" type="text" placeholder="Enter Course Title" formControlName="subject"></td>
+                <td *ngIf="f.subject.invalid && (f.subject.touched || f.subject.dirty)">
+                    <p *ngIf="f.subject.hasError('required')">Course Title is required</p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="body">Feedback Comments:</label></td><br>
+                <td><input id="body" type="text" placeholder="Enter Comments" formControlName="body"></td>
+                <td *ngIf="f.body.invalid && (f.body.touched || f.body.dirty)">
+                    <p *ngIf="f.body.hasError('required')">Feedback Comments are required</p>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="rating">Rating:</label></td><br>
+                <td>
+                    <div class="star-rating">
+                        <input type="radio" id="5-stars" name="rating" formControlName="rating" value="5" />
+                        <label for="5-stars" class="star">&#9733;</label>
+                        <input type="radio" id="4-stars" name="rating" formControlName="rating" value="4" />
+                        <label for="4-stars" class="star">&#9733;</label>
+                        <input type="radio" id="3-stars" name="rating" formControlName="rating" value="3" />
+                        <label for="3-stars" class="star">&#9733;</label>
+                        <input type="radio" id="2-stars" name="rating" formControlName="rating" value="2" />
+                        <label for="2-stars" class="star">&#9733;</label>
+                        <input type="radio" id="1-star" name="rating" formControlName="rating" value="1" />
+                        <label for="1-star" class="star">&#9733;</label>
+                    </div>
+                </td>
+                <td *ngIf="f.rating.invalid && (f.rating.touched || f.rating.dirty)">
+                    <p *ngIf="f.rating.hasError('required')">Rating is required</p>
+                </td>
+            </tr>
+            <tr>
+                <td><button [disabled]="reviewForm.invalid">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- Modal Popup -->
+<div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+      <p>Added Successfully</p>
+      <button (click)="confirmAccept()">OK</button>
+    </div>
+</div>

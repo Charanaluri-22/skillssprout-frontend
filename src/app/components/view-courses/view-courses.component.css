@@ -1,0 +1,67 @@
+.container {
+  padding: 20px;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.course-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  flex: 1 1 calc(33.333% - 20px);
+  max-width: calc(33.333% - 20px);
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+}
+
+.course-card h2 {
+  font-size: 1.5rem;
+  margin: 20px;
+}
+
+.course-card img {
+  width: 100%;
+  height: auto;
+}
+
+.course-card p {
+  margin: 20px;
+  font-size: 1rem;
+}
+
+.course-card button {
+  margin: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.loading-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+@media (max-width: 1200px) {
+  .course-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}

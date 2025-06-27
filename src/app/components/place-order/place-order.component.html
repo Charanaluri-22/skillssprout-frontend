@@ -1,0 +1,45 @@
+<form>
+  <div>
+    <label for="nameInput">Name:</label><br>
+    <input type="text" id="nameInput" name="nameInput">
+  </div>
+  <div>
+    <label for="mobileNumberInput">Mobile Number:</label><br>
+    <input type="text" id="mobileNumberInput" name="mobileNumberInput">
+  </div>
+  <div>
+    <label for="studentTrainer">What are you (Student/Professional)?:</label><br>
+    <input type="text" id="studentTrainer"  name="studentTrainer">
+  </div>
+  <div>
+    <label for="emailInput">Email ID:</label><br>
+    <input type="email" id="emailInput" name="emailInput" [(ngModel)]="email" disabled>
+  </div>
+  <div>
+    <label for="priceInput">Total Price:</label><br>
+    <input type="number" id="priceInput" name="priceInput" [(ngModel)]="totalAmount" disabled>
+  </div>
+  <div>
+    <span>
+      <button type="submit" (click)="makePayment()">Make Payment</button>
+    </span>
+  </div>
+</form>
+
+<!-- Payment Success Modal -->
+<div class="modal fade" id="paymentSuccessModal" tabindex="-1" aria-labelledby="paymentSuccessModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="paymentSuccessModalLabel">Payment Successful</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="redirectToMyOrders()"></button>
+      </div>
+      <div class="modal-body">
+        Your payment was successful! Click Ok to continue..
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="redirectToMyOrders()">OK</button>
+      </div>
+    </div>
+  </div>
+</div>

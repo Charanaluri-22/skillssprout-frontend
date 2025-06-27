@@ -1,0 +1,42 @@
+<h2>Edit Course</h2>
+<form #editCourseForm="ngForm">
+    <div>
+        <div>
+            <label for="courseType">Course Type:*</label><br>
+            <input type="text" name="courseType" [(ngModel)]="course.courseType" required #courseType="ngModel">
+            <div *ngIf="courseType.invalid && (courseType.dirty || courseType.touched)" class="error">
+                Course Type is required.
+            </div>
+        </div>
+        <div>
+            <label for="courseImageUrl">Course Image URL:*</label><br>
+            <input type="text" name="courseImageUrl" [(ngModel)]="course.courseImageUrl" required
+                #courseImageUrl="ngModel">
+            <div *ngIf="courseImageUrl.invalid && (courseImageUrl.dirty || courseImageUrl.touched)" class="error">
+                Course Image URL is required.
+            </div>
+        </div>
+        <div>
+            <label for="courseDetails">Course Details:*</label><br>
+            <input type="text" name="courseDetails" [(ngModel)]="course.courseDetails" required
+                #courseDetails="ngModel">
+            <div *ngIf="courseDetails.invalid && (courseDetails.dirty || courseDetails.touched)" class="error">
+                Course Details are required.
+            </div>
+        </div>
+        <div>
+            <label for="coursePrice">Price:*</label><br>
+            <input type="number" name="price" [(ngModel)]="course.coursePrice" required #coursePrice="ngModel">
+            <div *ngIf="coursePrice.invalid && (coursePrice.dirty || coursePrice.touched)" class="error">
+                Price is required.
+            </div>
+        </div>
+        <div>
+            <span>
+                <button (click)="updateCourse(course.courseId)" [disabled]="editCourseForm.invalid">Update
+                    Course</button>
+                <button (click)="cancel()">Cancel</button>
+            </span>
+        </div>
+    </div>
+</form>

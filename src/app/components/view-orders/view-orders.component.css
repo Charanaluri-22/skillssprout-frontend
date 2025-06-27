@@ -1,0 +1,63 @@
+.container {
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+h2 {
+    text-align: center;
+    color: #1e3a8a;
+    font-family: 'Arial', sans-serif;
+}
+ 
+.loading-bar {
+    text-align: center;
+    padding: 10px;
+    background-color: #2563eb;
+    color: white;
+    font-weight: bold;
+}
+ 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+ 
+thead th {
+    background-color: #1e3a8a;
+    color: white;
+    padding: 10px;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+ 
+tbody td {
+    padding: 10px;
+    border: 1px solid #1e3a8a;
+}
+ 
+tr:nth-child(even) {
+    background-color: #f0f8ff;
+}
+ 
+tr:hover {
+    background-color: #dbeafe;
+}
+ 
+.ng-container td {
+    border-top: 0;
+}
+ 
+.ng-container tr td {
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+}
+ 
+.currency-symbol {
+    font-weight: bold;
+    color: #1e3a8a;
+}
+ 

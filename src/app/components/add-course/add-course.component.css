@@ -1,0 +1,64 @@
+/* General form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Heading styling */
+  h2 {
+    text-align: center;
+    color: #1e3a8a;
+  }
+  
+  /* Label styling */
+  label {
+    font-weight: bold;
+    color: #1e3a8a;
+  }
+  
+  /* Input field styling */
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Error message styling */
+  div p {
+    color: red;
+    font-size: 0.9em;
+  }
+  
+  /* Button styling */
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  button:hover {
+    background-color: #1e3a8a;
+  }
+  
+  /* Container div styling */
+  div {
+    margin-bottom: 20px;
+  }

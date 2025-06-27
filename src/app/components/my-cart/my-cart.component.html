@@ -1,0 +1,26 @@
+<div class="container mt-4">
+  <h2>My Cart</h2>
+  <div *ngIf="cartItems.length === 0" class="alert alert-info">
+    Your cart is empty.
+  </div>
+  <div *ngIf="cartItems.length > 0">
+    <div class="row">
+      <div *ngFor="let item of cartItems" class="col-md-4 mb-4">
+        <div class="card h-100 border-primary">
+          <div class="card-body">
+            <h3 class="card-title text-primary">{{ item.courseDetails }}</h3>
+            <img [src]="item.courseImageUrl" class="card-img-top" alt="{{ item.courseType }} Course">
+            <p class="card-text ">Details: {{ item.courseDetails }}</p>
+            <p class="card-text">Price: {{ item.coursePrice | currency:'INR':'symbol':'1.2-2'}}</p>
+            <p class="card-text">Course Type: {{ item.courseType }}</p>
+            <button class="btn btn-danger" (click)="removeFromCart(item.courseId)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-3">
+      <h3>Total Amount: {{ totalAmount | currency:'INR':'symbol':'1.2-2'}}</h3>
+      <button class="btn btn-success" (click)="enrollNow()">Enroll Now</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+.logo {
+    width: 55px;
+    height: 55px;
+    margin-right: 10px;
+}
+
+.nav-link:hover {
+    background-color: #1E3A8A;
+    color: #ffffff;
+    border-radius: 2px;
+}
+
+.navbar {
+    background-color: #1E3A8A;
+}

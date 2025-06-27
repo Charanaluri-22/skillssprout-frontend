@@ -1,0 +1,70 @@
+/* General form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Label styling */
+  label {
+    font-weight: bold;
+    color: #1e3a8a;
+  }
+  
+  /* Input field styling */
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 48%;
+    background-color: #2563eb;
+    color: white;
+  }
+  
+  button:hover {
+    background-color: #1e3a8a;
+  }
+  
+  button:first-of-type {
+    background-color: #1e3a8a;
+  }
+  
+  button:first-of-type:hover {
+    background-color: #2563eb;
+  }
+  
+  /* Span styling */
+  span {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Container div styling */
+  div {
+    margin-bottom: 20px;
+  }
+  
+  /* Heading styling */
+  h2 {
+    text-align: center;
+    color: #1e3a8a;
+  }
+.error {
+  color: red;
+}

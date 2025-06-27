@@ -1,0 +1,54 @@
+<h2>Add New Course</h2>
+<form [formGroup]="addForm" (ngSubmit)="addCourse()">
+    <div>
+        <label for="courseType">Course Type:*</label><br>
+        <input type="text" formControlName="courseType">
+        <div *ngIf="f.courseType.invalid && (f.courseType.touched || f.courseType.dirty)">
+            <p *ngIf="f.courseType.hasError('required')">Course Type is required</p>
+        </div>
+    </div>
+    <div>
+        <label for="courseImageUrl">Course Image URL:*</label><br>
+        <input type="text" formControlName="courseImageUrl">
+        <div *ngIf="f.courseImageUrl.invalid && (f.courseImageUrl.touched || f.courseImageUrl.dirty)">
+            <p *ngIf="f.courseImageUrl.hasError('required')">Course Image URL is required</p>
+            <p *ngIf="f.courseImageUrl.hasError('pattern')">Please enter a valid URL (e.g., http://example.com/image.png)</p>
+        </div>
+    </div>
+    <div>
+        <label for="courseDetails">Course Details:*</label><br>
+        <input type="text" formControlName="courseDetails">
+        <div *ngIf="f.courseDetails.invalid && (f.courseDetails.touched || f.courseDetails.dirty)">
+            <p *ngIf="f.courseDetails.hasError('required')">Course Details is required</p>
+            <p *ngIf="f.courseDetails.hasError('minlength')">Course Details should be at least 5 characters</p>
+            <p *ngIf="f.courseDetails.hasError('maxlength')">Course Details should not be greater than 125 characters</p>
+        </div>
+    </div>
+    <div>
+        <label for="coursePrice">Price:*</label><br>
+        <input type="number" formControlName="coursePrice">
+        <div *ngIf="f.coursePrice.invalid && (f.coursePrice.touched || f.coursePrice.dirty)">
+            <p *ngIf="f.coursePrice.hasError('required')">Price is required</p>
+        </div>
+    </div>
+    <div>
+        <button [disabled]="addForm.invalid">Add Course</button>
+    </div>
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="courseAddedModal" tabindex="-1" aria-labelledby="courseAddedModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="courseAddedModalLabel">Course Added</h5>
+      </div>
+      <div class="modal-body">
+        The course has been successfully added.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

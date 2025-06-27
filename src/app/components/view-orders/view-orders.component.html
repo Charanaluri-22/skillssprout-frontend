@@ -1,0 +1,55 @@
+<div class="container mt-4">
+    <h2 class="align-center">Orders</h2>
+    <div *ngIf="isLoading" class="loading-bar alert alert-info">
+        Loading Orders...
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Customer Email</th>
+                <th>Course Type</th>
+                <th>Course Details</th>
+                <th>Course Price</th>
+                <th>Total Price</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="orders.length">
+                <ng-container *ngFor="let order of orders">
+                    <tr>
+                        <td [attr.rowspan]="order.courses.length">{{ order.orderId }}</td>
+                        <td [attr.rowspan]="order.courses.length">{{ order.customer?.customerName || 'N/A' }}</td>
+                        <td [attr.rowspan]="order.courses.length">{{ order.customer?.user?.email || 'N/A' }}</td>
+                        <td>{{ order.courses[0]?.courseType }}</td>
+                        <td>{{ order.courses[0]?.courseDetails }}</td>
+                        <td>{{ order.courses[0]?.coursePrice | currency:'INR':'symbol':'1.2-2' }}</td>
+                        <td [attr.rowspan]="order.courses.length">{{ order.orderPrice | currency:'INR':'symbol':'1.2-2'
+                            }}</td>
+                        <td [attr.rowspan]="order.courses.length"> <span class="badge" [ngClass]="{
+                            'badge badge-primary': order.status === 'pending',
+                            'badge badge-success': order.status === 'accepted',
+                            'badge badge-danger': order.status === 'rejected'
+                        }">{{ order.status }}</span></td>
+                        <td [attr.rowspan]="order.courses.length">
+                            <button class="btn btn-success" (click)="updateOrderStatus(order.orderId, 'accepted')"
+                                [disabled]="order.status === null">Accept</button>
+                            <button class="btn btn-danger" (click)="updateOrderStatus(order.orderId, 'rejected')"
+                                [disabled]="order.status === null">Reject</button>
+                        </td>
+                    </tr>
+                    <ng-container *ngFor="let course of order.courses.slice(1)">
+                        <tr>
+                            <td>{{ course.courseType }}</td>
+                            <td>{{ course.courseDetails }}</td>
+                            <td>{{ course.coursePrice | currency:'INR':'symbol':'1.2-2' }}</td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,118 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.course-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  width: 48%; /* Two courses per row on larger screens */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.course-card h2 {
+  margin-top: 0;
+  font-size: 1.25rem; /* Reduced font size for course title */
+}
+
+.course-card img {
+  width: auto;
+  height: 100px;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.course-card p {
+  margin: 5px 0;
+  font-size: 0.875rem; /* Reduced font size for card text */
+}
+
+.course-card button {
+  display: block;
+  width: 100%;
+  padding: 8px; /* Reduced padding for button */
+  margin-top: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.875rem; /* Reduced font size for button */
+}
+
+.course-card button:hover {
+  background-color: #0056b3;
+}
+
+.cart-message {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #dff0d8;
+  border: 1px solid #d6e9c6;
+  color: #3c763d;
+  border-radius: 5px;
+  text-align: center;
+  width: 80%; /* Decreased width of the cart message */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .course-card {
+    width: 100%; /* One course per row on smaller screens */
+  }
+
+  .cart-message {
+    width: 90%; /* Adjusted width for smaller screens */
+  }
+}
+.loading-bar {
+  font-size: 1.5rem;
+  color: #1E3A8A;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.card-body{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.toast {
+  border: 1px solid #28a745;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.toast-header {
+  border-bottom: none;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #28a745; /* Green background color */
+  color: white; /* White text color */
+}
+
+.toast-body {
+  padding: 1rem;
+  background-color: #f8f9fa; /* Light background color */
+}

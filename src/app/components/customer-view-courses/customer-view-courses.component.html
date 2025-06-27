@@ -1,0 +1,34 @@
+<div class="container mt-4">
+  <h2>Available Courses</h2>
+  <div *ngIf="isLoading" class="loading-bar">
+    Loading courses...
+  </div>
+  <div class="course-list">
+    <div *ngFor="let course of courses" class="course-card">
+      <div class="card h-100 border-primary">
+        <div class="card-body">
+          <h2 class="card-title text-primary">{{ course.courseDetails }}</h2>
+          <img [src]="course.courseImageUrl" class="card-img-top" alt="{{ course.courseType }} Course">
+          <p class="card-text">Details: {{ course.courseDetails }}</p>
+          <p class="card-text">Price: {{ course.coursePrice | currency:'INR':'symbol':'1.2-2' }}</p>
+          <p class="card-text">Course Type: {{ course.courseType }}</p>
+          <button class="btn btn-primary" (click)="addToCart(course)">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast Container -->
+<div class="position-fixed top-0 end-0 p-3" style="z-index: 11">
+  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header bg-success text-white">
+      <strong class="me-auto">Notification</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body bg-light">
+      {{cartMessage}}
+    </div>
+  </div>
+</div>
+

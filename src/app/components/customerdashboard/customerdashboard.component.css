@@ -1,0 +1,110 @@
+.customer-dashboard {
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.customer-dashboard h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar .heading {
+  color: yellow;
+  font-size: 18px;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  margin: 0;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.navbar ul li {
+  margin-right: 10px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #007bff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+  background-color: #0056b3;
+}
+
+.customer-dashboard .content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.customer-dashboard .content h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.customer-dashboard .content p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.customer-dashboard .content .button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.customer-dashboard .content .button-group button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.customer-dashboard .content .button-group button:hover {
+  background-color: #218838;
+}
+
+.customer-dashboard .content .alert {
+  padding: 15px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.customer-dashboard footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #777;
+}

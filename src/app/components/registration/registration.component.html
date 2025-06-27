@@ -1,0 +1,151 @@
+<div class="container d-flex justify-content-center align-items-center"
+    style="background: #EEF2FF; min-height: 100vh; padding: 20px; overflow: auto;">
+    <div class="col-md-6 col-lg-4 shadow-lg p-5 bg-white rounded-4">
+        <h2 class="text-center text-primary fw-bold">Registration</h2>
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+            <!-- Username -->
+            <div class="mb-3">
+                <label for="username" class="form-label fw-semibold">User Name:</label>
+                <input type="text" id="username" class="form-control border-primary" name="username"
+                    [(ngModel)]="registerUser.username" required
+                    (input)="registerForm.controls.username?.markAsDirty()">
+                <div *ngIf="registerForm.controls.username?.dirty && !registerForm.controls.username?.valid"
+                    class="text-danger small mt-1">
+                    <p>Username is required</p>
+                </div>
+            </div>
+
+            <!-- Customer Name -->
+            <div class="mb-3">
+                <label for="customerName" class="form-label fw-semibold">Customer Name:</label>
+                <input type="text" id="customerName" class="form-control border-primary" name="customerName"
+                    [(ngModel)]="registerUser.customerName" required
+                    (input)="registerForm.controls.customerName?.markAsDirty()">
+                <div *ngIf="registerForm.controls.customerName?.dirty && !registerForm.controls.customerName?.valid"
+                    class="text-danger small mt-1">
+                    <p>Customer Name is required</p>
+                </div>
+            </div>
+
+            <!-- Additional Information -->
+            <div class="mb-3">
+                <label for="information" class="form-label fw-semibold">Are you a Student or Professional:</label>
+                <textarea id="information" class="form-control border-primary" name="information"
+                    [(ngModel)]="registerUser.information"
+                    (input)="registerForm.controls.information?.markAsDirty()"></textarea>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+                <label for="email" class="form-label fw-semibold">Email:</label>
+                <input type="email" id="email" class="form-control border-primary" name="email"
+                    [(ngModel)]="registerUser.email" required email
+                    (input)="registerForm.controls.email?.markAsDirty()">
+                <div *ngIf="registerForm.controls.email?.dirty && !registerForm.controls.email?.valid"
+                    class="text-danger small mt-1">
+                    <p *ngIf="registerForm.controls.email?.errors?.email">Enter a valid email</p>
+                    <p *ngIf="registerForm.controls.email?.errors?.required">Email is required</p>
+                </div>
+            </div>
+
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label for="password" class="form-label fw-semibold">Password:</label>
+                <input type="password" id="password" class="form-control border-primary" name="password"
+                    [(ngModel)]="registerUser.password" required
+                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%\^&\*]).{8,}$"
+                    (input)="registerForm.controls.password?.markAsDirty()">
+                <div *ngIf="registerForm.controls.password?.dirty && !registerForm.controls.password?.valid"
+                    class="text-danger small mt-1">
+                    <p *ngIf="registerForm.controls.password?.errors?.required">Password is required</p>
+                    <p *ngIf="registerForm.controls.password?.errors?.pattern">Password should contain at least one
+                        uppercase, one lowercase, one special character, and be at least 8 characters long.</p>
+                </div>
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label fw-semibold">Confirm Password:</label>
+                <input type="password" id="confirmPassword" class="form-control border-primary" name="confirmPassword"
+                    [(ngModel)]="confirmPassword" required
+                    (input)="registerForm.controls.confirmPassword?.markAsDirty()">
+                <div *ngIf="registerForm.controls.confirmPassword?.dirty && confirmPassword !== registerUser.password"
+                    class="text-danger small mt-1">
+                    <p>Password and Confirm Password should match.</p>
+                </div>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="mb-3">
+                <label for="mobileNumber" class="form-label fw-semibold">Mobile Number:</label>
+                <input type="text" id="mobileNumber" class="form-control border-primary" name="mobileNumber"
+                    [(ngModel)]="registerUser.mobileNumber" required pattern="^[0-9]{10}$"
+                    (input)="registerForm.controls.mobileNumber?.markAsDirty()">
+                <div *ngIf="registerForm.controls.mobileNumber?.dirty && !registerForm.controls.mobileNumber?.valid"
+                    class="text-danger small mt-1">
+                    <p *ngIf="registerForm.controls.mobileNumber?.errors?.required">Mobile Number is required</p>
+                    <p *ngIf="registerForm.controls.mobileNumber?.errors?.pattern">Please enter a valid format</p>
+                </div>
+            </div>
+
+            <!-- Role Selection -->
+            <div class="mb-3">
+                <label for="role" class="form-label fw-semibold">Select a Role:</label>
+                <select id="role" class="form-select" name="role" [(ngModel)]="registerUser.role" required>
+                    <option value="">Select a value</option>
+                    <option value="ADMIN">Admin</option>
+                    <option value="USER">User</option>
+                </select>
+            </div>
+
+            <!-- Register Button -->
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary fw-semibold"
+                    [disabled]="registerForm.invalid">Register</button>
+            </div>
+        </form>
+
+        <p class="text-center mt-3">
+            Do you have an account? <a routerLink="/login" class="text-decoration-none" style="color: #2563EB;">Login
+                Here</a>
+        </p>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successModalLabel">Success</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          User and Customer Registered Successfully.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Error Modal -->
+  <div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">Error</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{errorMessage}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

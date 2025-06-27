@@ -1,0 +1,42 @@
+<div class="container">
+    <h2 class="text-primary">View Orders</h2>
+    <div *ngIf="isLoading" class="loading-bar alert alert-info">
+        Loading orders...
+    </div>
+    <div *ngIf="!isLoading && orders.length === 0" class="alert alert-info">
+        No Orders Available.
+    </div>
+    <table *ngIf="!isLoading && orders.length > 0">
+        <thead>
+            <tr>
+                <th>Order No</th>
+                <th>Course Image</th>
+                <th>Course Type</th>
+                <th>Course Details</th>
+                <th>Price</th>
+                <th>Order Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let order of orders; index as i">
+                <tr *ngFor="let course of order.courses">
+                    <td *ngIf="course === order.courses[0]" [attr.rowspan]="order.courses.length">{{ i+1 }}</td>
+                    <td><img [src]="course.courseImageUrl" alt="{{ course.courseType }} Course" style="width: 50px; height: 50px;"></td>
+                    <td>{{ course.courseType }}</td>
+                    <td>{{ course.courseDetails }}</td>
+                    <td>{{ course.coursePrice | currency:'INR':'symbol':'1.2-2' }}</td>
+                    <td *ngIf="course === order.courses[0]" [attr.rowspan]="order.courses.length">{{ order.status }}</td>
+                    <td>
+                        <button class="btn btn-primary" [disabled]="order.status==='pending' || order.status===null || order.status==='rejected'" (click)="addReview(course)">Add Review</button>
+                    </td>
+                </tr>
+                <tr *ngIf="course === order.courses[order.courses.length - 1]">
+                    <td colspan="4" style="text-align: right;"><strong>Total Price:</strong></td>
+                    <td>{{ order.orderPrice | currency:'INR':'symbol':'1.2-2' }}</td>
+                    <td></td> <!-- Empty cell to align with the rowspan -->
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>

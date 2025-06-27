@@ -1,0 +1,53 @@
+<h2>View Reviews</h2>
+
+<div>
+  <input 
+    type="text" 
+    [(ngModel)]="searchQuery" 
+    (input)="searchReviews()" 
+    placeholder="Search reviews..." 
+  />
+
+  <label for="sort-field">Sort by:</label>
+  <select id="sort-field" [(ngModel)]="sortField" (change)="onSortFieldChange(sortField)">
+    <option value="customerName">Customer Name</option>
+    <option value="subject">Course Title</option>
+    <option value="body">Feedback Comments</option>
+    <option value="rating">Rating</option>
+    <option value="dateCreated">Date Creation</option>
+  </select>
+
+  <label for="sort-direction">Direction:</label>
+  <select id="sort-direction" [(ngModel)]="sortDirection" (change)="onSortDirectionChange(sortDirection)">
+    <option value="asc">Ascending</option>
+    <option value="desc">Descending</option>
+  </select>
+</div>
+
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>Customer Name</th>
+        <th>Course Title</th>
+        <th>Feedback Comments</th>
+        <th>Rating</th>
+        <th>Date Creation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let rev of filteredReviews; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ rev.customer?.customerName }}</td>
+        <td>{{ rev.subject }}</td>
+        <td>{{ rev.body }}</td>
+        <td>{{ rev.rating }}</td>
+        <td>{{ rev.dateCreated | date }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="isLoading" class="loading-bar alert alert-info">
+    Loading Reviews...
+  </div>
+</div>
